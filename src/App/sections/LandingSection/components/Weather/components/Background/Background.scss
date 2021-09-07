@@ -1,0 +1,12 @@
+.weather__background {
+  position: absolute;
+  z-index: 0;
+  height: 100%;
+  overflow: hidden;
+
+  img {
+    display: block;
+    width: 100%;
+    opacity: 0.3;
+  }
+}
