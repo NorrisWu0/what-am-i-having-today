@@ -1,14 +1,14 @@
 /* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 
-import { Background, Header, Current } from './components';
+import { Background, Header, Current, Forecast } from './components';
 import './Weather.css';
 
 import getWeatherDataFromLocation from './services/WeatherAPI';
 
 export default function Weather() {
   const [city, setCity] = useState('sydney');
-  const [weatherDatas, setWeatherDatas] = useState([]);
+  const [weatherData, setWeatherData] = useState([]);
 
   const updateCity = (event) => {
     event.preventDefault();
@@ -18,10 +18,11 @@ export default function Weather() {
   useEffect(async () => {
     await getWeatherDataFromLocation({ location: city }).then((response) => {
       const { timezone_offset, daily } = response;
-      setWeatherDatas([]);
+      setWeatherData([]);
 
       if (daily) {
         daily.forEach((day) => {
+          console.log(day);
           const { dt, sunrise, sunset, temp, weather } = day;
           const newWeatherData = {
             dt: (dt + timezone_offset) * 1000,
@@ -31,15 +32,13 @@ export default function Weather() {
             weather
           };
 
-          setWeatherDatas((oldWeatherDatas) => [
-            ...oldWeatherDatas,
-            newWeatherData
+          setWeatherData((oldWeatherData) => [
+            newWeatherData,
+            ...oldWeatherData
           ]);
         });
       }
     });
-
-    console.log(weatherDatas);
   }, [city]);
 
   return (
@@ -48,14 +47,8 @@ export default function Weather() {
 
       <div className="content">
         <Header updateCity={updateCity} />
-        <Current currentData={weatherDatas.shift()} />
-
-        {/* <ul>
-        {weatherData &&
-          weatherData.map((forecast, index) => (
-            <ForecastItem forecast={forecast} index={index} />
-            ))}
-          </ul> */}
+        {weatherData && <Current currentData={weatherData.shift()} />}
+        {weatherData && <Forecast forecastData={weatherData} />}
       </div>
     </div>
   );

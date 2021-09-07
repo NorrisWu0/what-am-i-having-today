@@ -1,6 +1,6 @@
 import Background from './Background/Background';
 import Header from './Header/Header';
 import Current from './Current/Current';
-// import ForecastItem from './ForecastItem/ForecastItem';
+import Forecast from './Forecast/Forecast';
 
-export { Background, Header, Current };
+export { Background, Header, Current, Forecast };
