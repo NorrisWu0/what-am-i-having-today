@@ -22,7 +22,6 @@ export default function Weather() {
 
       if (daily) {
         daily.forEach((day) => {
-          console.log(day);
           const { dt, sunrise, sunset, temp, weather } = day;
           const newWeatherData = {
             dt: (dt + timezone_offset) * 1000,
@@ -33,8 +32,8 @@ export default function Weather() {
           };
 
           setWeatherData((oldWeatherData) => [
-            newWeatherData,
-            ...oldWeatherData
+            ...oldWeatherData,
+            newWeatherData
           ]);
         });
       }
@@ -46,8 +45,8 @@ export default function Weather() {
       <Background />
 
       <div className="content">
-        <Header updateCity={updateCity} />
-        {weatherData && <Current currentData={weatherData.shift()} />}
+        <Header currentData={weatherData[0]} updateCity={updateCity} />
+        {weatherData && <Current currentData={weatherData[0]} />}
         {weatherData && <Forecast forecastData={weatherData} />}
       </div>
     </div>
