@@ -1,4 +1,5 @@
 @use '../../../../../../../sass/color';
+@use '../../../../../../../sass/mixin';
 
 .weather__current {
   z-index: 1;
@@ -51,16 +52,13 @@
         &_min {
           font-size: 5rem;
           color: color.$tertiary;
-
-          &:after {
-            width: 2px;
-            border: 1px solid white;
-          }
+          @include mixin.addDegreeAfter();
         }
 
         &_max {
           font-size: 5rem;
           color: color.$secondary;
+          @include mixin.addDegreeAfter();
         }
       }
     }

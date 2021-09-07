@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .weather__current {
   z-index: 1;
   display: flex;
@@ -46,12 +47,14 @@
   color: #149ce8;
 }
 .weather__current__detail__temp__degree_min:after {
-  width: 2px;
-  border: 1px solid white;
+  content: "°";
 }
 .weather__current__detail__temp__degree_max {
   font-size: 5rem;
   color: #ec6e4c;
+}
+.weather__current__detail__temp__degree_max:after {
+  content: "°";
 }
 .weather__current__detail__sun {
   display: flex;

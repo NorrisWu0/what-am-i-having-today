@@ -1,9 +1,10 @@
 @use '../../../../../../../sass/color';
+@use '../../../../../../../sass/mixin';
 
 .weather__forecast {
   z-index: 1;
   display: flex;
-  gap: 2rem;
+  gap: 0.5rem;
   align-items: center;
   box-sizing: border-box;
   padding: 0.6rem 1.8rem;
@@ -45,10 +46,12 @@
 
       &_low {
         color: color.$tertiary;
+        @include mixin.addDegreeAfter();
       }
 
       &_high {
         color: color.$secondary;
+        @include mixin.addDegreeAfter();
       }
     }
   }

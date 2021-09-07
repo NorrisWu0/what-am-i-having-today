@@ -28,10 +28,22 @@ export default function Current({ currentData }) {
       setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
 
       const sunriseTime = new Date(sunrise);
-      const sunriseStr = `${sunriseTime.getHours()}:${sunriseTime.getMinutes()}`;
+      const sunriseStr = `${sunriseTime
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${sunriseTime
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}`;
       setSunrise(sunriseStr);
       const sunsetTime = new Date(sunset);
-      const sunsetStr = `${sunsetTime.getHours()}:${sunsetTime.getMinutes()}`;
+      const sunsetStr = `${sunsetTime
+        .getHours()
+        .toString()
+        .padStart(2, '0')}:${sunsetTime
+        .getMinutes()
+        .toString()
+        .padStart(2, '0')}`;
       setSunset(sunsetStr);
     }
   }, [currentData]);
@@ -47,13 +59,13 @@ export default function Current({ currentData }) {
           <div>
             <span className="weather__current__detail__temp__label">Low</span>
             <span className="weather__current__detail__temp__degree_min">
-              {minTemp}°
+              {minTemp}
             </span>
           </div>
           <div>
             <span className="weather__current__detail__temp__label">High</span>
             <span className="weather__current__detail__temp__degree_max">
-              {maxTemp}°
+              {maxTemp}
             </span>
           </div>
         </div>
