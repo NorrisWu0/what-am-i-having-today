@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import './Header.css';
 
@@ -28,7 +28,7 @@ const month = [
   'December'
 ];
 
-export default function Header() {
+export default function Header({ updateCity }) {
   const date = new Date();
   const [currentDate, setCurrentDate] = useState(
     `${weekday[date.getDay()]}, ${date.getDate()} ${
@@ -55,7 +55,12 @@ export default function Header() {
     <div className="weather__header">
       <span>{currentDate}</span>
       <span>{currentTime}</span>
-      <select className="weather__header__city-selector" name="ciy" id="city">
+      <select
+        className="weather__header__city-selector"
+        name="ciy"
+        id="city"
+        onChange={updateCity}
+      >
         <option value="sydney">Sydney</option>
         <option value="melbourne">Melbourne</option>
         <option value="canberra">Canberra</option>
@@ -66,4 +71,6 @@ export default function Header() {
   );
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  updateCity: PropTypes.func.isRequired
+};
