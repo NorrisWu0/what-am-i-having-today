@@ -28,28 +28,22 @@ const month = [
   'December'
 ];
 
-export default function Header({ updateCity }) {
-  const date = new Date();
-  const [currentDate, setCurrentDate] = useState(
-    `${weekday[date.getDay()]}, ${date.getDate()} ${
-      month[date.getMonth()]
-    } ${date.getFullYear()}`
-  );
-  const [currentTime, setCurrentTime] = useState(
-    new Date().toLocaleTimeString()
-  );
+export default function Header({ currentData, updateCity }) {
+  const [currentDate, setCurrentDate] = useState('');
+  const [currentTime, setCurrentTime] = useState('');
+
   useEffect(() => {
-    setInterval(
-      () =>
-        setCurrentDate(
-          `${weekday[date.getDay()]}, ${date.getDate()} ${
-            month[date.getMonth()]
-          } ${date.getFullYear()}`
-        ),
-      43200000
-    );
-    setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
-  }, []);
+    if (currentData) {
+      const date = new Date(currentData.dt);
+
+      setCurrentDate(
+        `${weekday[date.getDay()]}, ${date.getDate()} ${
+          month[date.getMonth()]
+        } ${date.getFullYear()}`
+      );
+      setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+    }
+  }, [currentData]);
 
   return (
     <div className="weather__header">
@@ -72,5 +66,6 @@ export default function Header({ updateCity }) {
 }
 
 Header.propTypes = {
+  currentData: PropTypes.arrayOf(PropTypes.string).isRequired,
   updateCity: PropTypes.func.isRequired
 };

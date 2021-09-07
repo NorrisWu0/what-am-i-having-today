@@ -1,31 +1,41 @@
-$weatherPrimaryColor: #e96450;
-$weatherSecondaryColor: #50c4e9;
-$weatherItemBgColor: #10101050;
+@use '../../../../../../../sass/color';
 
-@mixin itemContainer($borderColor: $weatherSecondaryColor) {
-  background: $weatherItemBgColor;
-  border-right: 5px solid $borderColor;
-}
-
-.weather-bar__forecast {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.weather__forecast {
+  z-index: 1;
+  display: flex;
   gap: 2rem;
   align-items: center;
   box-sizing: border-box;
   padding: 0.6rem 1.8rem;
 
-  @include itemContainer();
-
   font-size: 1.6rem;
   font-weight: 300;
 
-  &__info {
+  &__item {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    width: 100%;
+    background: #00000099;
+    box-shadow: 2.42057px 2.42057px 4.84115px rgba(0, 0, 0, 0.25);
+    border-radius: 5.75872px;
 
     &__day {
       font-weight: 400;
+    }
+
+    &__condition {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        display: block;
+        width: 60px;
+        height: 60px;
+      }
     }
 
     &__temp {
@@ -34,41 +44,12 @@ $weatherItemBgColor: #10101050;
       font-size: 2rem;
 
       &_low {
-        color: $weatherSecondaryColor;
+        color: color.$tertiary;
       }
 
       &_high {
-        color: $weatherPrimaryColor;
+        color: color.$secondary;
       }
     }
   }
-
-  &__weather {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &__icon {
-      position: relative;
-      width: 8rem;
-      height: 8rem;
-      overflow: hidden;
-
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    &__label {
-      display: none;
-    }
-  }
-}
-
-.current {
-  @include itemContainer($weatherPrimaryColor);
 }
