@@ -1,0 +1,9 @@
+@use '../../../sass/color';
+
+.landing-section {
+  width: 100%;
+  height: 98vh;
+
+  background: color.$landingSectionBg;
+  box-shadow: 15.8333px 23.3333px 59.1667px rgba(0, 0, 0, 0.25);
+}
