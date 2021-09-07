@@ -1,4 +1,7 @@
 .landing-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100%;
   height: 98vh;
   background: #111726;

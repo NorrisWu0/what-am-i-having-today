@@ -1,4 +1,4 @@
-import Logo from './Logo/Logo';
 import Weather from './Weather/Weather';
+import Transition from './Transition/Transition';
 
-export { Logo, Weather };
+export { Weather, Transition };

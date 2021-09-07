@@ -1,0 +1,25 @@
+.transition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+}
+.transition__heading {
+  text-align: left;
+}
+.transition__heading h1 {
+  font-size: 5.2rem;
+  text-decoration: underline;
+  color: #f2b003;
+}
+.transition__heading h2 {
+  font-size: 18rem;
+  line-height: 80%;
+  color: #ec6e4c;
+}
+.transition__heading h3 {
+  font-size: 2rem;
+  color: #149ce8;
+}
