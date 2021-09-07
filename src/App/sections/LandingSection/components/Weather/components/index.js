@@ -1,5 +1,5 @@
 import Background from './Background/Background';
+import Header from './Header/Header';
 // import ForecastItem from './ForecastItem/ForecastItem';
 
-// eslint-disable-next-line import/prefer-default-export
-export { Background };
+export { Background, Header };
