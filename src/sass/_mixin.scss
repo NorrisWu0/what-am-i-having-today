@@ -1,0 +1,5 @@
+@mixin addDegreeAfter() {
+  &:after {
+    content: '°';
+  }
+}

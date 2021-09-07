@@ -28,10 +28,10 @@ const ForecastItem = ({ forecastData }) => {
       </div>
       <div className="weather__forecast__item__temp">
         <span className="weather__forecast__item__temp_low">
-          {temp && Math.round(temp.min).toString().padStart(2, '0')}°
+          {temp && Math.round(temp.min).toString().padStart(2, '0')}
         </span>
         <span className="weather__forecast__item__temp_high">
-          {temp && Math.round(temp.max).toString().padStart(2, '0')}°
+          {temp && Math.round(temp.max).toString().padStart(2, '0')}
         </span>
       </div>
     </li>
