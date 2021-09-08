@@ -4,14 +4,16 @@
   border-bottom: 1px solid #ffffff;
   font-size: 2.4rem;
 }
-.weather__header__city-selector {
-  background: none;
-  outline: 0;
-  border: 0;
-  padding: 0;
-  font-size: 2.4rem;
+.weather__header select {
+  background-color: #00000000;
+  outline: none;
+  border: none;
+  font-size: 2rem;
   color: #ffffff;
 }
-.weather__header__city-selector:focus, .weather__header__city-selector:hover {
-  background: #ffffff10;
+.weather__header select:hover {
+  background-color: #ffffff10;
+}
+.weather__header select > option {
+  background-color: grey;
 }

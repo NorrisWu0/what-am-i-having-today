@@ -7,18 +7,20 @@
 
   font-size: 2.4rem;
 
-  &__city-selector {
-    background: none;
-    outline: 0;
-    border: 0;
-    padding: 0;
+  select {
+    background-color: #00000000;
+    outline: none;
+    border: none;
 
-    font-size: 2.4rem;
+    font-size: 2rem;
     color: color.$landingSectionText;
 
-    &:focus,
     &:hover {
-      background: #ffffff10;
+      background-color: #ffffff10;
+    }
+
+    & > option {
+      background-color: grey;
     }
   }
 }

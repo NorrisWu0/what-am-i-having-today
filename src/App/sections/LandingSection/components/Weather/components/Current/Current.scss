@@ -6,6 +6,7 @@ $tempFontSize: 6rem;
 @mixin tempFont($color) {
   color: $color;
   font-size: $tempFontSize;
+  font-weight: 400;
   @include mixin.addDegreeAfter();
 }
 
