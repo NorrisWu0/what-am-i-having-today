@@ -7,6 +7,13 @@ import getWeatherDataFromLocation from './services/WeatherAPI';
 
 export default function Weather() {
   const [city, setCity] = useState('sydney');
+  const [backgroundStyle, setBackgroundStyle] = useState({
+    background: `linear-gradient(
+          0deg,
+          rgba(0, 0, 10, 0.6),
+          rgba(0, 0, 10, 0.6)
+        )`
+  });
   const [weatherData, setWeatherData] = useState([]);
 
   const updateCity = (event) => {
@@ -16,14 +23,23 @@ export default function Weather() {
 
   useEffect(() => {
     getWeatherDataFromLocation({ location: city }).then((response) => {
-      setWeatherData(response);
+      console.log(response.background);
+      setBackgroundStyle({
+        backgroundImage: `linear-gradient(
+          0deg,
+          rgba(0, 0, 10, 0.6),
+          rgba(0, 0, 10, 0.6)
+        ),
+        url(${response.background})`
+      });
+      setWeatherData(response.filteredWeatherData);
     });
   }, [city]);
 
   const [currentData, ...forecastData] = weatherData;
 
   return (
-    <section className="weather">
+    <section style={backgroundStyle} className="weather">
       <div className="content">
         <Header currentData={currentData} updateCity={updateCity} />
         {weatherData && <Current currentData={currentData} />}
