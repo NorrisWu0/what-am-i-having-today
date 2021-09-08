@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import PropTypes from 'prop-types';
 import Axios from 'axios';
 
@@ -29,7 +30,9 @@ const cityCoordinates = {
 
 export default async function getWeatherDataFromLocation({ location }) {
   const { lat, lon } = cityCoordinates[location];
-  const { data } = await Axios({
+  const filteredWeatherData = [];
+
+  await Axios({
     method: 'get',
     url: owApiUrl,
     params: {
@@ -38,9 +41,32 @@ export default async function getWeatherDataFromLocation({ location }) {
       lon,
       units: 'metric'
     }
+  }).then((response) => {
+    const { timezone_offset, daily } = response.data;
+
+    if (daily) {
+      daily.forEach((day) => {
+        const { dt, sunrise, sunset, temp, weather } = day;
+        const newData = {
+          dt: (dt + timezone_offset) * 1000,
+          sunrise: (sunrise + timezone_offset) * 1000,
+          sunset: (sunset + timezone_offset) * 1000,
+          temp: {
+            min: temp.min,
+            max: temp.max
+          },
+          weather: {
+            main: weather[0].main,
+            icon: `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`
+          }
+        };
+
+        filteredWeatherData.push(newData);
+      });
+    }
   });
 
-  return data;
+  return filteredWeatherData;
 }
 
 getWeatherDataFromLocation.propTypes = {

@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import React, { useState, useEffect } from 'react';
 
 import { Background, Header, Current, Forecast } from './components';
@@ -15,40 +14,23 @@ export default function Weather() {
     setCity(event.target.value);
   };
 
-  useEffect(async () => {
-    await getWeatherDataFromLocation({ location: city }).then((response) => {
-      const { timezone_offset, daily } = response;
-      setWeatherData([]);
-
-      if (daily) {
-        daily.forEach((day) => {
-          const { dt, sunrise, sunset, temp, weather } = day;
-          const newWeatherData = {
-            dt: (dt + timezone_offset) * 1000,
-            sunrise: (sunrise + timezone_offset) * 1000,
-            sunset: (sunset + timezone_offset) * 1000,
-            temp,
-            weather
-          };
-
-          setWeatherData((oldWeatherData) => [
-            ...oldWeatherData,
-            newWeatherData
-          ]);
-        });
-      }
+  useEffect(() => {
+    getWeatherDataFromLocation({ location: city }).then((response) => {
+      setWeatherData(response);
     });
   }, [city]);
 
+  const [currentData, ...forecastData] = weatherData;
+
   return (
-    <div className="weather">
+    <section className="weather">
       <Background />
 
       <div className="content">
-        <Header currentData={weatherData[0]} updateCity={updateCity} />
-        {weatherData && <Current currentData={weatherData[0]} />}
-        {weatherData && <Forecast forecastData={weatherData} />}
+        <Header currentData={currentData} updateCity={updateCity} />
+        {weatherData && <Current currentData={currentData} />}
+        {weatherData && <Forecast forecastData={forecastData} />}
       </div>
-    </div>
+    </section>
   );
 }

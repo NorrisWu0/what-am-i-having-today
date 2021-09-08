@@ -18,11 +18,9 @@ export default function Current({ currentData }) {
   useEffect(() => {
     if (currentData) {
       const { sunrise, sunset, temp, weather } = currentData;
-
-      const iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
-
-      setCondition(weather[0].main);
-      setConditionIcon(iconUrl);
+      const { main, icon } = weather;
+      setCondition(main);
+      setConditionIcon(icon);
 
       setMinTemp(Math.round(temp.min).toString().padStart(2, '0'));
       setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
@@ -89,5 +87,17 @@ export default function Current({ currentData }) {
 }
 
 Current.propTypes = {
-  currentData: PropTypes.arrayOf(PropTypes.string).isRequired
+  currentData: PropTypes.shape({
+    dt: PropTypes.number,
+    sunrise: PropTypes.number,
+    sunset: PropTypes.number,
+    temp: PropTypes.shape({
+      min: PropTypes.number,
+      max: PropTypes.number
+    }),
+    weather: PropTypes.shape({
+      main: PropTypes.string,
+      icon: PropTypes.string
+    })
+  }).isRequired
 };
