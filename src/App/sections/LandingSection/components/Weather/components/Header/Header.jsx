@@ -45,18 +45,15 @@ export default function Header({ currentData, updateCity }) {
   return (
     <div className="weather__header">
       <span>{currentDate}</span>
-      <select
-        className="weather__header__city-selector"
-        name="ciy"
-        id="city"
-        onChange={updateCity}
-      >
-        <option value="sydney">Sydney</option>
-        <option value="melbourne">Melbourne</option>
-        <option value="canberra">Canberra</option>
-        <option value="brisbane">Brisbane</option>
-        <option value="adelaide">Adelaide</option>
-      </select>
+      <div className="weather__header__city-selector">
+        <select onChange={updateCity}>
+          <option value="sydney">Sydney</option>
+          <option value="melbourne">Melbourne</option>
+          <option value="canberra">Canberra</option>
+          <option value="brisbane">Brisbane</option>
+          <option value="adelaide">Adelaide</option>
+        </select>
+      </div>
     </div>
   );
 }

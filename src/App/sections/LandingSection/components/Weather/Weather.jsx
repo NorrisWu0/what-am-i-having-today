@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Background, Header, Current, Forecast } from './components';
+import { Header, Current, Forecast } from './components';
 import './Weather.css';
 
 import getWeatherDataFromLocation from './services/WeatherAPI';
@@ -24,8 +24,6 @@ export default function Weather() {
 
   return (
     <section className="weather">
-      <Background />
-
       <div className="content">
         <Header currentData={currentData} updateCity={updateCity} />
         {weatherData && <Current currentData={currentData} />}

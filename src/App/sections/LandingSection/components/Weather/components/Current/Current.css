@@ -14,7 +14,7 @@
   width: 100%;
   height: 10rem;
   background-blend-mode: multiply;
-  background: #00000099;
+  background: rgba(0, 0, 10, 0.9);
   box-shadow: 2.42057px 2.42057px 4.84115px rgba(0, 0, 0, 0.25);
   border-radius: 7.26172px;
 }
@@ -43,6 +43,7 @@
 .weather__current__temp__degree_min {
   color: #149ce8;
   font-size: 6rem;
+  font-weight: 400;
 }
 .weather__current__temp__degree_min:after {
   content: "°";
@@ -50,6 +51,7 @@
 .weather__current__temp__degree_max {
   color: #ec6e4c;
   font-size: 6rem;
+  font-weight: 400;
 }
 .weather__current__temp__degree_max:after {
   content: "°";
