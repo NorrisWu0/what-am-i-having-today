@@ -13,9 +13,9 @@ const ForecastItem = ({ forecastData }) => {
 
   useEffect(() => {
     setDate(new Date(dt));
-    const { main, icon } = weather[0];
+    const { main, icon } = weather;
     setText(main);
-    setIconUrl(`http://openweathermap.org/img/wn/${icon}@2x.png`);
+    setIconUrl(icon);
   }, [forecastData]);
 
   return (
@@ -43,7 +43,6 @@ ForecastItem.propTypes = {
 };
 
 export default function Forecast({ forecastData }) {
-  // forecastData.shift();
   return (
     <ul className="weather__forecast">
       {forecastData &&

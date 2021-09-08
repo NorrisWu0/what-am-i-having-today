@@ -30,25 +30,21 @@ const month = [
 
 export default function Header({ currentData, updateCity }) {
   const [currentDate, setCurrentDate] = useState('');
-  const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
     if (currentData) {
       const date = new Date(currentData.dt);
-
       setCurrentDate(
         `${weekday[date.getDay()]}, ${date.getDate()} ${
           month[date.getMonth()]
         } ${date.getFullYear()}`
       );
-      setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
     }
   }, [currentData]);
 
   return (
     <div className="weather__header">
       <span>{currentDate}</span>
-      <span>{currentTime}</span>
       <select
         className="weather__header__city-selector"
         name="ciy"
@@ -66,6 +62,7 @@ export default function Header({ currentData, updateCity }) {
 }
 
 Header.propTypes = {
-  currentData: PropTypes.arrayOf(PropTypes.string).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  currentData: PropTypes.object.isRequired,
   updateCity: PropTypes.func.isRequired
 };
