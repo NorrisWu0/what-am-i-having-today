@@ -15,6 +15,12 @@ export default function Current({ currentData }) {
   const [setTime, setSunset] = useState(0);
   const [riseTime, setSunrise] = useState(0);
 
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+  }, []);
+
   useEffect(() => {
     if (currentData) {
       const { sunrise, sunset, temp, weather } = currentData;
@@ -47,26 +53,24 @@ export default function Current({ currentData }) {
   }, [currentData]);
 
   return (
-    <div className="weather__current">
+    <section className="weather__current">
       <div className="weather__current__condition">
         <img src={conditionIcon} alt={condition} />
         <span>{condition}</span>
       </div>
-      <div className="weather__current__detail">
-        <div className="weather__current__detail__temp">
-          <div>
-            <span className="weather__current__detail__temp__label">Low</span>
-            <span className="weather__current__detail__temp__degree_min">
-              {minTemp}
-            </span>
-          </div>
-          <div>
-            <span className="weather__current__detail__temp__label">High</span>
-            <span className="weather__current__detail__temp__degree_max">
-              {maxTemp}
-            </span>
-          </div>
+      <div className="weather__current__temp">
+        <div>
+          <span className="weather__current__temp__label">Low</span>
+          <span className="weather__current__temp__degree_min">{minTemp}</span>
         </div>
+        <div>
+          <span className="weather__current__temp__label">High</span>
+          <span className="weather__current__temp__degree_max">{maxTemp}</span>
+        </div>
+      </div>
+      <div className="weather__current__detail">
+        <div className="weather__current__detail__time">{currentTime}</div>
+
         <div className="weather__current__detail__sun">
           <div>
             <img src={sunriseSVG} alt="Sunrise" />
@@ -82,7 +86,7 @@ export default function Current({ currentData }) {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
