@@ -52,15 +52,16 @@ export default async function getWeatherDataFromLocation({ location }) {
       units: 'metric'
     }
   }).then((response) => {
-    const { timezone_offset, daily } = response.data;
+    const { timezone, daily } = response.data;
 
     if (daily) {
       daily.forEach((day) => {
         const { dt, sunrise, sunset, temp, weather } = day;
         const newData = {
-          dt: (dt + timezone_offset) * 1000,
-          sunrise: (sunrise + timezone_offset) * 1000,
-          sunset: (sunset + timezone_offset) * 1000,
+          timezone,
+          dt: dt * 1000,
+          sunrise: sunrise * 1000,
+          sunset: sunset * 1000,
           temp: {
             min: temp.min,
             max: temp.max

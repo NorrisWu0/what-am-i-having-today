@@ -73,7 +73,14 @@
 .weather__current__detail__sun > div {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+.weather__current__detail__sun > div img {
+  display: block;
+  max-width: 4rem;
+  max-height: 100%;
+  object-fit: cover;
 }
 .weather__current__detail__sun__label {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
