@@ -23,7 +23,6 @@ export default function Weather() {
 
   useEffect(() => {
     getWeatherDataFromLocation({ location: city }).then((response) => {
-      console.log(response.background);
       setBackgroundStyle({
         backgroundImage: `linear-gradient(
           0deg,
@@ -42,8 +41,8 @@ export default function Weather() {
     <section style={backgroundStyle} className="weather">
       <div className="content">
         <Header currentData={currentData} updateCity={updateCity} />
-        {weatherData && <Current currentData={currentData} />}
-        {weatherData && <Forecast forecastData={forecastData} />}
+        {currentData && <Current currentData={currentData} />}
+        {forecastData && <Forecast forecastData={forecastData} />}
       </div>
     </section>
   );
