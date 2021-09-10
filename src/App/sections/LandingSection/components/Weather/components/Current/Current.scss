@@ -82,10 +82,18 @@ $tempFontSize: 6rem;
       & > div {
         display: flex;
         flex-direction: column;
+        align-items: center;
+
+        img {
+          display: block;
+          max-width: 4rem;
+          max-height: 100%;
+          object-fit: cover;
+        }
       }
 
       &__label {
-        font-size: 1.6rem;
+        font-size: 1.2rem;
       }
     }
   }

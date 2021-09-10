@@ -18,8 +18,17 @@ export default function Current({ currentData }) {
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
-    setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
-  }, []);
+    const clock = setInterval(() =>
+      setCurrentTime(
+        new Date().toLocaleTimeString('en-AU', {
+          // eslint-disable-next-line react/prop-types
+          timeZone: currentData.timezone
+        }),
+        1000
+      )
+    );
+    return () => clearInterval(clock);
+  }, [currentData]);
 
   useEffect(() => {
     if (currentData) {
@@ -31,6 +40,7 @@ export default function Current({ currentData }) {
       setMinTemp(Math.round(temp.min).toString().padStart(2, '0'));
       setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
 
+      console.log(sunrise);
       const sunriseTime = new Date(sunrise);
       const sunriseStr = `${sunriseTime
         .getHours()
@@ -38,7 +48,7 @@ export default function Current({ currentData }) {
         .padStart(2, '0')}:${sunriseTime
         .getMinutes()
         .toString()
-        .padStart(2, '0')}`;
+        .padStart(2, '0')} AM`;
       setSunrise(sunriseStr);
       const sunsetTime = new Date(sunset);
       const sunsetStr = `${sunsetTime
@@ -47,7 +57,7 @@ export default function Current({ currentData }) {
         .padStart(2, '0')}:${sunsetTime
         .getMinutes()
         .toString()
-        .padStart(2, '0')}`;
+        .padStart(2, '0')} PM`;
       setSunset(sunsetStr);
     }
   }, [currentData]);
