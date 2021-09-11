@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 import { Header, Current, Forecast } from './components';
 import './Weather.css';
@@ -38,12 +39,18 @@ export default function Weather() {
   const [currentData, ...forecastData] = weatherData;
 
   return (
-    <section style={backgroundStyle} className="weather">
-      <div className="content">
+    <motion.section
+      style={backgroundStyle}
+      className="weather"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1 }}
+    >
+      <section className="content">
         <Header currentData={currentData} updateCity={updateCity} />
         {currentData && <Current currentData={currentData} />}
         {forecastData && <Forecast forecastData={forecastData} />}
-      </div>
-    </section>
+      </section>
+    </motion.section>
   );
 }
