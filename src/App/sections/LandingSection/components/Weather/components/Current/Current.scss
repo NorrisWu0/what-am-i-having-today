@@ -34,6 +34,10 @@
     box-shadow: 2.42057px 2.42057px 4.84115px rgba(0, 0, 0, 0.25);
     border-radius: 7.26172px;
 
+    @include mixin.tabletStyle {
+      width: 100%;
+    }
+
     img {
       display: block;
       max-width: 8rem;
