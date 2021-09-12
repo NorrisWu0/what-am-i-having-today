@@ -10,31 +10,31 @@ const cityAvailable = {
     lat: -33.5204,
     lon: 151.1226,
     bgImg:
-      'https://images.unsplash.com/photo-1565194388949-64569b118e53?fit=crop&w=2090&h=800'
+      'https://images.unsplash.com/photo-1490444189366-0a6f173c6318?fit=crop&w=2090'
   },
   melbourne: {
     lat: -37.485,
     lon: 144.5747,
     bgImg:
-      'https://images.unsplash.com/photo-1470294402047-fc1b5f39bd99?fit=crop&w=2090&h=800'
+      'https://images.unsplash.com/photo-1470294402047-fc1b5f39bd99?fit=crop&w=2090'
   },
   canberra: {
     lat: -35.28346,
     lon: 149.12807,
     bgImg:
-      'https://images.unsplash.com/photo-1510546020578-a35ae9fcfb0f?fit=crop&w=2090&h=800'
+      'https://images.unsplash.com/photo-1510546020578-a35ae9fcfb0f?fit=crop&w=2090'
   },
   brisbane: {
     lat: -27.46794,
     lon: 153.02809,
     bgImg:
-      'https://images.unsplash.com/photo-1553054016-374a8fef247a?fit=crop&w=2090&h=800'
+      'https://images.unsplash.com/photo-1553054016-374a8fef247a?fit=crop&w=2090'
   },
   adelaide: {
     lat: -34.92866,
     lon: 138.59863,
     bgImg:
-      'https://images.unsplash.com/photo-1558406665-ce46cc44e96e?fit=crop&w=2090&h=800'
+      'https://images.unsplash.com/photo-1558406665-ce46cc44e96e?fit=crop&w=2090'
   }
 };
 
