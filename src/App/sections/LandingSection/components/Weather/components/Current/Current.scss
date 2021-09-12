@@ -17,11 +17,18 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 5rem;
+  gap: 2rem;
   width: 100%;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+
+  background: color.$weatherConditionBg;
+  box-shadow: 2.42057px 2.42057px 4.84115px rgba(0, 0, 0, 0.25);
+  border-radius: 7.26172px;
 
   @include mixin.tabletStyle {
     flex-direction: row;
+    align-items: center;
   }
 
   &__condition {
