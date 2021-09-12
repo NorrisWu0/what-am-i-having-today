@@ -1,19 +1,35 @@
 @use '../../../../../sass/color';
+@use '../../../../../sass/mixin';
 
 .weather {
   position: relative;
   width: 100%;
-  padding: 2rem 0;
-  background-position: 50% 50%;
+  height: 100vh;
   box-shadow: 7.26172px 7.26172px 15.7337px #00000025;
+  background-position: 50% 50%;
+
+  @include mixin.tabletStyle {
+    padding: 2rem 0;
+    height: auto;
+  }
 
   .content {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    justify-content: space-evenly;
     margin: auto;
     padding: 2rem;
-    width: 50%;
-    font-weight: 300;
+    height: 100%;
+
+    @include mixin.tabletStyle {
+      gap: 2rem;
+      justify-content: flex-start;
+      width: 85%;
+      font-weight: 300;
+    }
+
+    @include mixin.desktopStyle {
+      width: 50%;
+    }
   }
 }
