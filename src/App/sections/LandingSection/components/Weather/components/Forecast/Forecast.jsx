@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
+import { LoadingWaveIcon } from 'src/App/components';
 import './Forecast.css';
 
 const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
-const ForecastItem = ({ forecastData }) => {
+const ForecastItem = ({ isLoading, forecastData }) => {
   const { dt, temp, weather } = forecastData;
   const [date, setDate] = useState(new Date());
   const [text, setText] = useState(' ');
@@ -17,6 +18,14 @@ const ForecastItem = ({ forecastData }) => {
     setText(main);
     setIconUrl(icon);
   }, [forecastData]);
+
+  if (isLoading) {
+    return (
+      <li className="weather__forecast__item">
+        <LoadingWaveIcon />
+      </li>
+    );
+  }
 
   return (
     <li className="weather__forecast__item">
@@ -39,18 +48,22 @@ const ForecastItem = ({ forecastData }) => {
 };
 
 ForecastItem.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   forecastData: PropTypes.arrayOf(PropTypes.string).isRequired
 };
 
-export default function Forecast({ forecastData }) {
+export default function Forecast({ isLoading, forecastData }) {
   return (
     <ul className="weather__forecast">
       {forecastData &&
-        forecastData.map((data) => <ForecastItem forecastData={data} />)}
+        forecastData.map((data) => (
+          <ForecastItem isLoading={isLoading} forecastData={data} />
+        ))}
     </ul>
   );
 }
 
 Forecast.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
   forecastData: PropTypes.arrayOf(PropTypes.string).isRequired
 };

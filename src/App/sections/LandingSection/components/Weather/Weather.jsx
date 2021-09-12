@@ -16,6 +16,7 @@ export default function Weather() {
         )`
   });
   const [weatherData, setWeatherData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const updateCity = (event) => {
     event.preventDefault();
@@ -23,6 +24,7 @@ export default function Weather() {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getWeatherDataFromLocation({ location: city }).then((response) => {
       setBackgroundStyle({
         backgroundImage: `linear-gradient(
@@ -33,6 +35,7 @@ export default function Weather() {
         url(${response.background})`
       });
       setWeatherData(response.filteredWeatherData);
+      setIsLoading(false);
     });
   }, [city]);
 
@@ -48,8 +51,12 @@ export default function Weather() {
     >
       <section className="content">
         <Header currentData={currentData} updateCity={updateCity} />
-        {currentData && <Current currentData={currentData} />}
-        {forecastData && <Forecast forecastData={forecastData} />}
+        {currentData && (
+          <Current isLoading={isLoading} currentData={currentData} />
+        )}
+        {forecastData && (
+          <Forecast isLoading={isLoading} forecastData={forecastData} />
+        )}
       </section>
     </motion.section>
   );
