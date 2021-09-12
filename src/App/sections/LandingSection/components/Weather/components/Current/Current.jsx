@@ -40,7 +40,6 @@ export default function Current({ currentData }) {
       setMinTemp(Math.round(temp.min).toString().padStart(2, '0'));
       setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
 
-      console.log(sunrise);
       const sunriseTime = new Date(sunrise);
       const sunriseStr = `${sunriseTime
         .getHours()
