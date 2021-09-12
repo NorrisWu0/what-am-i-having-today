@@ -15,3 +15,9 @@
     @content;
   }
 }
+
+@mixin customViewportStyle($minWidth: 1240) {
+  @media only screen and (min-width: $minWidth) {
+    @content;
+  }
+}

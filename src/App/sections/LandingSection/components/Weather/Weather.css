@@ -30,6 +30,11 @@
 }
 @media only screen and (min-width: 1240px) {
   .weather .content {
-    width: 50%;
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 1620px) {
+  .weather .content {
+    width: 60%;
   }
 }
