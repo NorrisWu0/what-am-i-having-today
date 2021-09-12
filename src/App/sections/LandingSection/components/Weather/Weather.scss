@@ -30,7 +30,11 @@
     }
 
     @include mixin.desktopStyle {
-      width: 50%;
+      width: 75%;
+    }
+
+    @include mixin.customViewportStyle(1620px) {
+      width: 60%;
     }
   }
 }
