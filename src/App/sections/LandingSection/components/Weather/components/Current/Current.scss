@@ -29,6 +29,7 @@
   @include mixin.tabletStyle {
     flex-direction: row;
     align-items: center;
+    height: 17rem;
   }
 
   &__condition {
