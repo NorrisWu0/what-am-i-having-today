@@ -11,8 +11,8 @@ export default function Weather() {
   const [backgroundStyle, setBackgroundStyle] = useState({
     background: `linear-gradient(
           0deg,
-          rgba(0, 0, 10, 0.6),
-          rgba(0, 0, 10, 0.6)
+          rgba(0, 0, 10, 0.8),
+          rgba(0, 0, 10, 0.8)
         )`
   });
   const [weatherData, setWeatherData] = useState([]);
