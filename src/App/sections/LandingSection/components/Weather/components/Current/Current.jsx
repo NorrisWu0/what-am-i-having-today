@@ -31,34 +31,32 @@ export default function Current({ isLoading, currentData }) {
   }, [currentData]);
 
   useEffect(() => {
-    if (currentData) {
-      const { sunrise, sunset, temp, weather } = currentData;
-      const { main, icon } = weather;
-      setCondition(main);
-      setConditionIcon(icon);
+    const { sunrise, sunset, temp, weather } = currentData;
+    const { main, icon } = weather;
+    setCondition(main);
+    setConditionIcon(icon);
 
-      setMinTemp(Math.round(temp.min).toString().padStart(2, '0'));
-      setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
+    setMinTemp(Math.round(temp.min).toString().padStart(2, '0'));
+    setMaxTemp(Math.round(temp.max).toString().padStart(2, '0'));
 
-      const sunriseTime = new Date(sunrise);
-      const sunriseStr = `${sunriseTime
-        .getHours()
-        .toString()
-        .padStart(2, '0')}:${sunriseTime
-        .getMinutes()
-        .toString()
-        .padStart(2, '0')} AM`;
-      setSunrise(sunriseStr);
-      const sunsetTime = new Date(sunset);
-      const sunsetStr = `${sunsetTime
-        .getHours()
-        .toString()
-        .padStart(2, '0')}:${sunsetTime
-        .getMinutes()
-        .toString()
-        .padStart(2, '0')} PM`;
-      setSunset(sunsetStr);
-    }
+    const sunriseTime = new Date(sunrise);
+    const sunriseStr = `${sunriseTime
+      .getHours()
+      .toString()
+      .padStart(2, '0')}:${sunriseTime
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')} AM`;
+    setSunrise(sunriseStr);
+    const sunsetTime = new Date(sunset);
+    const sunsetStr = `${sunsetTime
+      .getHours()
+      .toString()
+      .padStart(2, '0')}:${sunsetTime
+      .getMinutes()
+      .toString()
+      .padStart(2, '0')} PM`;
+    setSunset(sunsetStr);
   }, [currentData]);
 
   if (isLoading) {

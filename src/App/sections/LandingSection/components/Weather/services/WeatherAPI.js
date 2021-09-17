@@ -42,7 +42,6 @@ export default async function getWeatherDataFromLocation({ location }) {
   const filteredWeatherData = [];
 
   await Axios({
-    method: 'get',
     url: owApiUrl,
     params: {
       appid: owApiKey,
