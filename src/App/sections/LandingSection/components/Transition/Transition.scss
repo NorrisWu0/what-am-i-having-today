@@ -1,0 +1,29 @@
+@use '../../../../../sass/color' as *;
+
+.transition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+
+  &__heading {
+    h1 {
+      font-size: 5.2rem;
+      text-decoration: underline;
+      color: $primary;
+    }
+    h2 {
+      font-size: 18rem;
+      line-height: 80%;
+      color: $secondary;
+    }
+    h3 {
+      font-size: 2rem;
+      color: $tertiary;
+    }
+
+    text-align: left;
+  }
+}
