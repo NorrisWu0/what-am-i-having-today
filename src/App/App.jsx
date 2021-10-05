@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { LandingSection } from './sections';
+import { LandingSection, Spoonacular } from './sections';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <LandingSection />
+      <Spoonacular />
     </div>
   );
 }

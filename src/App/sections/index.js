@@ -1,4 +1,2 @@
-import LandingSection from './LandingSection/LandingSection';
-
-// eslint-disable-next-line import/prefer-default-export
-export { LandingSection };
+export { default as LandingSection } from './LandingSection/LandingSection';
+export { default as Spoonacular } from './Spoonacualr/Spoonacular';
