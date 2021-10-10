@@ -1,0 +1,17 @@
+.redux_fun--user {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  font-size: 1.6rem;
+}
+.redux_fun--user--state {
+  text-transform: uppercase;
+}
+.redux_fun--user--action {
+  display: flex;
+  gap: 1rem;
+}
+.redux_fun--user--action button {
+  padding: 0.4rem 1.6rem;
+  text-transform: uppercase;
+}
