@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeUsername, updateStatus } from './actions/user.action';
+import { changeUsername, updateStatus } from './user.action';
 
 import './User.css';
 
