@@ -2,14 +2,12 @@ name: Docker Image CI
 
 on: [pull_request]
 
-env:
-  DOCKER_IMAGE_TAG: $(date+%s)
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: 💁‍♂️ Fetch package version from package.json
+        id: image_tag
         run: |
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
@@ -20,7 +18,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🏗 Build the Docker image
-        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:${{fromJson(steps.set_var.outputs.packageJson).version}}
+        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:${{fromJson(steps.image_tag.outputs.packageJson).version}}
 
       - name: 🚀 Push \the image to docker hub
-        run: docker push norriswu/what-am-i-having-today:${{fromJson(steps.set_var.outputs.packageJson).version}}
+        run: docker push norriswu/what-am-i-having-today:${{fromJson(steps.image_tag.outputs.packageJson).version}}
