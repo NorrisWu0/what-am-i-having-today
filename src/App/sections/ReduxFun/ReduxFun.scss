@@ -1,0 +1,28 @@
+@use '../../../sass/color';
+
+.redux_fun {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4rem;
+  box-sizing: border-box;
+  padding: 5rem 20vw;
+  width: 100vw;
+  min-height: 100vh;
+
+  background: color.$landingSectionBg;
+
+  &--title {
+    align-self: stretch;
+    border-bottom: 1px solid white;
+
+    font-size: 4rem;
+    font-weight: 300;
+    text-align: left;
+  }
+
+  &--subtitle {
+    font-size: 2.4rem;
+    text-align: left;
+  }
+}
