@@ -2,13 +2,18 @@ name: Docker Image CI
 
 on: [pull_request]
 
+env:
+  DOCKER_IMAGE_TAG: $(date + %s)
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: 🏃‍♂️ Setup workflow runner
+        uses: actions/checkout@v2
+
       - name: 🏗 Build the Docker image
-        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:$(date +%s)
+        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:${DOCKER_IMAGE_TAG}
 
       - name: 🚀 Push \the image to docker hub
-        run: docker push norriswu/what-am-i-having-today:$(date +%s)
+        run: docker push norriswu/what-am-i-having-today:${DOCKER_IMAGE_TAG}
