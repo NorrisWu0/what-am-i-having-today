@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { repos } from './repos';
 import user from './user.reducer';
+import repos from './repos.reducer';
 
 export default combineReducers({
   user,
