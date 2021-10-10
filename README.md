@@ -24,5 +24,16 @@ The idea of this app started as an ☁ weather app ☀ to practice connecting to
     </Weather>
     <Transition />
   </LandingSection>
+
+  <Spoonacular />
+
+  <ReduxFun>
+    // Simple Example
+    <User />
+    // Simple Example with API Calls
+    <Dashboard />
+    <Repos />
+    <Emojis />
+  </ReduxFun>
 </App>
 ```
