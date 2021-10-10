@@ -3,17 +3,24 @@ name: Docker Image CI
 on: [pull_request]
 
 env:
-  DOCKER_IMAGE_TAG: $(date + %s)
+  DOCKER_IMAGE_TAG: $(date+%s)
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: 💁‍♂️ Fetch package version from package.json
+        run: |
+          content="${content//'%'/'%25'}"
+          content="${content//$'\n'/'%0A'}"
+          content="${content//$'\r'/'%0D'}"
+          echo "::set-output name=packageJson::$content"
+
       - name: 🏃‍♂️ Setup workflow runner
         uses: actions/checkout@v2
 
       - name: 🏗 Build the Docker image
-        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:${DOCKER_IMAGE_TAG}
+        run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:${{fromJson(steps.set_var.outputs.packageJson).version}}
 
       - name: 🚀 Push \the image to docker hub
-        run: docker push norriswu/what-am-i-having-today:${DOCKER_IMAGE_TAG}
+        run: docker push norriswu/what-am-i-having-today:${{fromJson(steps.set_var.outputs.packageJson).version}}
