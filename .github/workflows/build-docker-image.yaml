@@ -14,13 +14,13 @@ jobs:
           content="${content//$'\r'/'%0D'}"
           echo "::set-output name=packageJson::$content"
 
-      - echo: 'Looks like this version will be ${{fromJson(steps.set_var.outputs.packageJson).version}} 🤔'
+      - run: echo "Looks like this version will be ${{fromJson(steps.set_var.outputs.packageJson).version}} 🤔"
 
       - name: 🏃‍♂️ Setup workflow runner
         uses: actions/checkout@v2
 
-      - name: 🏗 Build the Docker image
+      - name: 🏗 Build Docker image
         run: docker build . --file Dockerfile --tag norriswu/what-am-i-having-today:$(date)
 
-      - name: 🚀 Push \the image to docker hub
+      - name: 🚀 Push image to docker hub
         run: docker push norriswu/what-am-i-having-today:$(date)
