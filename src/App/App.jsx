@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LandingSection, Spoonacular } from './sections';
+import { LandingSection, Spoonacular, ReduxFun } from './sections';
 import './App.css';
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
     <div className="App">
       <LandingSection />
       <Spoonacular />
+      <ReduxFun />
     </div>
   );
 }
