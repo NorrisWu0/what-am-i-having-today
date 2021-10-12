@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 3rem;
   box-sizing: border-box;
   padding: 5rem 20vw;
   width: 100vw;
@@ -11,12 +11,40 @@
 }
 .redux_fun--title {
   align-self: stretch;
-  border-bottom: 1px solid white;
-  font-size: 4rem;
+  border-bottom: 2px solid white;
+  font-size: 2.4rem;
   font-weight: 300;
   text-align: left;
 }
-.redux_fun--subtitle {
+.redux_fun--api_examples {
+  align-self: stretch;
+  border: 0.5px solid white;
+}
+.redux_fun--api_examples--title {
+  border: 0.5px solid white;
+  padding: 1rem 2rem;
   font-size: 2.4rem;
-  text-align: left;
+  text-align: center;
+}
+.redux_fun--api_examples--menu {
+  display: flex;
+  justify-content: space-evenly;
+}
+.redux_fun--api_examples--menu a {
+  flex-grow: 1;
+  border: 0.5px solid white;
+  padding: 1rem 0;
+  transition: 0.3s;
+}
+.redux_fun--api_examples--menu a:hover {
+  color: black;
+  background-color: #e2e2e2;
+}
+.redux_fun--api_examples--frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 0.5px solid white;
+  height: 45rem;
 }
