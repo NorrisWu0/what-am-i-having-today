@@ -1,18 +1,32 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import loadEmojis from '../Emojis/emojis.action';
+import loadRepos from '../Repos/repos.action';
 
 import './Dashboard.css';
 
 export default function Dashboard() {
-  const { countRepos, countEmojis } = useSelector((state) => ({
-    countRepos: state.repos.repos.length,
-    countEmojis: Object.keys(state.emojis.emojis).length
+  const { storeCount, repoCount, emojiCount } = useSelector((state) => ({
+    storeCount: Object.keys(state).length,
+    repoCount: state.repos.repos.length,
+    emojiCount: Object.keys(state.emojis.emojis).length
   }));
+
+  console.log(storeCount);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!repoCount) dispatch(loadRepos());
+    if (!emojiCount) dispatch(loadEmojis());
+  }, []);
 
   return (
     <section className="redux_fun--dashboard">
-      <h2>Number of Repository In your Account: {countRepos}</h2>
-      <h2>Number of Emojis on Github API: {countEmojis}</h2>
+      <ul>
+        <li>Total of stores available: {storeCount}</li>
+        <li>Number of Repository In your Account: {repoCount}</li>
+        <li>Number of Emojis on Github API: {emojiCount}</li>
+      </ul>
     </section>
   );
 }
