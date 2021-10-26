@@ -1,15 +1,14 @@
 import fetchRepos from 'src/apis/fetchRepos';
 
-const reposRequested = () => ({
+export const reposRequested = () => ({
   type: 'REQUESTING_REPOS'
 });
-
 const reposSuccess = (res) => ({
   type: 'REPOS_SUCCESS',
   data: { repos: res.data }
 });
 
-const reposFailed = (err) => ({
+export const reposFailed = (err) => ({
   type: 'REPOS_FAILED',
   data: { err }
 });
