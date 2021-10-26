@@ -10,9 +10,13 @@ export default function ReduxFun() {
         Oh wait, did you just mentioned redux store? 🤔
       </h2>
 
-      <h3 className="redux_fun--subtitle">🐣 Redux Example</h3>
+      <h3 test="redux-example" className="redux_fun--subtitle">
+        🐣 Redux Example
+      </h3>
       <User />
-      <h3 className="redux_fun--subtitle">🐥 Redux Example with API Calls</h3>
+      <h3 test="redux-example-api" className="redux_fun--subtitle">
+        🐥 Redux Example with API Calls
+      </h3>
       <Dashboard />
       <Repos />
       <Emojis />
