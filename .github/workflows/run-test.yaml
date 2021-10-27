@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: 🚚 Install dependencies
-        uses: yarn install
+        uses: npm install
 
       - name: 🔎 Checking tests
-        uses: yarn test --coverage
+        uses: npm test --coverage
