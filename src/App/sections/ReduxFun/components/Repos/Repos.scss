@@ -1,33 +1,68 @@
 .redux_fun--repos {
+  flex-grow: 1;
+  display: flex;
+  height: 100%;
+
   &--loading {
     padding: 2rem;
     font-size: 1.6rem;
   }
 
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding-bottom: 2rem;
+  &--label {
+    position: sticky;
+    top: 0;
+    box-sizing: border-box;
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: white;
+    padding: 0.5rem;
 
-    a {
-      border: 2px solid white;
-      border-radius: 10px;
-      padding: 0.7rem 1.5rem;
+    background: #fff;
 
-      color: white;
-      font-size: 1.3rem;
-      letter-spacing: 0.15rem;
-      white-space: nowrap;
-      text-decoration: none;
+    color: black;
+    font-weight: 500;
+    text-align: center;
+  }
 
-      transition: 0.3s;
+  &--list {
+    flex-grow: 1;
+    overflow-y: scroll;
 
-      &:hover {
-        background: white;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
 
-        color: black;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      box-sizing: border-box;
+      border-right: 1px solid white;
+      padding: 1rem 2rem;
+
+      a {
+        border: 2px solid white;
+        border-radius: 10px;
+        padding: 0.7rem;
+
+        color: white;
+        font-size: 1.3rem;
+        letter-spacing: 0.15rem;
+        white-space: nowrap;
+        text-decoration: none;
+
+        transition: 0.3s;
+
+        &:hover {
+          background: white;
+
+          color: black;
+        }
       }
     }
+  }
+
+  &--detail {
+    flex-grow: 9;
   }
 }

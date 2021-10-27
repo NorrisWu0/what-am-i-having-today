@@ -1,3 +1,10 @@
+.redux_fun--emojis {
+  display: flex;
+  box-sizing: border-box;
+  padding: 2rem;
+  height: 100%;
+  overflow-y: scroll;
+}
 .redux_fun--emojis ul {
   display: flex;
   flex-wrap: wrap;

@@ -11,13 +11,7 @@ describe('ReduxFun section', () => {
 
   it('should have a title for 🐣 Redux Example', () => {
     expect(target.find("[test='redux-example']").text()).toBe(
-      '🐣 Redux Example'
-    );
-  });
-
-  it('should have a title for 🐥 Redux Example with API Calls', () => {
-    expect(target.find("[test='redux-example-api']").text()).toBe(
-      '🐥 Redux Example with API Calls'
+      '🐣 Redux Example 🐥'
     );
   });
 });

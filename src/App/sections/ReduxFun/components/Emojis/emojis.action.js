@@ -1,12 +1,4 @@
-import Axios from 'axios';
-
-const fetchEmojis = () =>
-  Axios.get('https://api.github.com/emojis', {
-    auth: {
-      username: 'norriswu0',
-      password: 'GitHub@667747'
-    }
-  });
+import fetchEmojis from 'src/apis/fetchEmojis';
 
 const emojisRequested = () => ({
   type: 'REQUESTING_EMOJIS'

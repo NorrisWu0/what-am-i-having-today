@@ -1,4 +1,10 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom';
 
 import { User, Repos, Emojis, Dashboard } from './components';
 import './ReduxFun.css';
@@ -9,17 +15,27 @@ export default function ReduxFun() {
       <h2 className="redux_fun--title">
         Oh wait, did you just mentioned redux store? 🤔
       </h2>
-
-      <h3 test="redux-example" className="redux_fun--subtitle">
-        🐣 Redux Example
-      </h3>
-      <User />
-      <h3 test="redux-example-api" className="redux_fun--subtitle">
-        🐥 Redux Example with API Calls
-      </h3>
-      <Dashboard />
-      <Repos />
-      <Emojis />
+      <Router>
+        <section className="redux_fun--api_examples">
+          <h3 test="redux-example" className="redux_fun--api_examples--title">
+            🐣 Redux Example 🐥
+          </h3>
+          <div className="redux_fun--api_examples--menu">
+            <NavLink to="/dashboard">Dashboard</NavLink>
+            <NavLink to="/user">User</NavLink>
+            <NavLink to="/repos">Repos</NavLink>
+            <NavLink to="/emojis">Emojis</NavLink>
+          </div>
+          <div className="redux_fun--api_examples--frame">
+            <Switch>
+              <Route path="/user" component={User} />
+              <Route path="/dashboard" component={Dashboard} />
+              <Route path="/repos" component={Repos} />
+              <Route path="/emojis" component={Emojis} />
+            </Switch>
+          </div>
+        </section>
+      </Router>
     </section>
   );
 }

@@ -12,15 +12,16 @@ function Emojis() {
     dispatch(loadEmojis());
   }, []);
 
+  if (loading) {
+    return (
+      <p className="redux_fun--loading">
+        Loading list of emojis from Github...
+      </p>
+    );
+  }
+
   return (
     <section className="redux_fun--emojis">
-      {loading ? (
-        <p className="redux_fun--repos--loading">
-          Loading list of emojis from Github...
-        </p>
-      ) : (
-        ''
-      )}
       <ul>
         {emojis &&
           Object.keys(emojis).map((item, index) => (

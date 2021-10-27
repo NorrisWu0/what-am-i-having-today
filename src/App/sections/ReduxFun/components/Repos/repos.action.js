@@ -13,16 +13,6 @@ export const reposFailed = (err) => ({
   data: { err }
 });
 
-// const reposReturned = ({ res = null, err = null, status }) => {
-//   if (status)
-//     return {
-//       type: 'REPOS_SUCCESS',
-//       data: { repos: res.data }
-//     };
-
-//   return { type: 'REPOS_FAILED', data: { err } };
-// };
-
 const loadRepos = () => {
   const callback = (dispatch) => {
     dispatch(reposRequested());
