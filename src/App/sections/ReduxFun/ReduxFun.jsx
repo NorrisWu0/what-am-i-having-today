@@ -17,7 +17,7 @@ export default function ReduxFun() {
       </h2>
       <Router>
         <section className="redux_fun--api_examples">
-          <h3 className="redux_fun--api_examples--title">
+          <h3 test="redux-example" className="redux_fun--api_examples--title">
             🐣 Redux Example 🐥
           </h3>
           <div className="redux_fun--api_examples--menu">
